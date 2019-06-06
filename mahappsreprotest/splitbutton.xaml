@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="mahappsreprotest.splitbutton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:mahappsreprotest"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <mah:SplitButton Grid.Row="1" x:Name="SplitButtonUpDown" Grid.Column="1" Margin="0,3,0,0" SelectedIndex="0" Background="{DynamicResource AccentColorBrush4}">
+            <mah:SplitButton.ItemsSource>
+                <x:Array Type="Grid">
+                    <Grid ToolTip="Downloads configuration from the server. Will overwrite all changes, except for private entries.">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid Margin="0,5,0,0">
+                                <iconPacks:Modern Kind="CloudDownload" Width="20" />
+                            </Grid>
+                            <Label Content="Download"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid ToolTip="Sends your configuration (without private entries) to the server for re-distribution.">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid Margin="0,5,0,0">
+                                <iconPacks:Modern Kind="CloudUpload" Width="20"/>
+                            </Grid>
+                            <Label Content="Upload"/>
+                        </StackPanel>
+                    </Grid>
+                </x:Array>
+            </mah:SplitButton.ItemsSource>
+        </mah:SplitButton>
+    </Grid>
+</UserControl>
